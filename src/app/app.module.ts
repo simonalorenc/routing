@@ -10,6 +10,10 @@ import { ProductsComponent } from './products/products.component';
 import { ProtectedComponent } from './protected/protected.component';
 import { ContactComponent } from './contact/contact.component';
 import { APP_BASE_HREF, HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { LoggedInGuard } from './logged-in.guard';
+import { MainComponent } from './main/main.component';
+import { MoreInfoComponent } from './more-info/more-info.component';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [
@@ -19,15 +23,19 @@ import { APP_BASE_HREF, HashLocationStrategy, LocationStrategy } from '@angular/
     LoginComponent,
     ProductsComponent,
     ProtectedComponent,
-    ContactComponent
+    ContactComponent,
+    MainComponent,
+    MoreInfoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ProductsModule
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    { provide: APP_BASE_HREF, useValue: '/' }
+    { provide: APP_BASE_HREF, useValue: '/' },
+    LoggedInGuard
   ],
   bootstrap: [AppComponent]
 })

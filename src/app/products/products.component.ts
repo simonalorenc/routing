@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -7,9 +7,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
-  id!: string
+  constructor(private router: Router, private route: ActivatedRoute) {
+  }
 
-  constructor(private route: ActivatedRoute) {
-    route.params.subscribe(params => { this.id = params['id']})
+  goToProduct(id: string): void {
+    this.router.navigate(['./', id], {relativeTo: this.route});
   }
 }
