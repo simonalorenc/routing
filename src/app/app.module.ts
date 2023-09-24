@@ -14,6 +14,7 @@ import { LoggedInGuard } from './logged-in.guard';
 import { MainComponent } from './main/main.component';
 import { MoreInfoComponent } from './more-info/more-info.component';
 import { ProductsModule } from './products/products.module';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ProductsModule } from './products/products.module';
     ProtectedComponent,
     ContactComponent,
     MainComponent,
-    MoreInfoComponent
+    MoreInfoComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
